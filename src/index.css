@@ -23,17 +23,40 @@ h1{
   text-align: center;
 }
 
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #71787e;
+}
+
+h2 span {
+  color: #c04f3e;
+}
+
 nav{
   display: flex;
-  width: 80vw;
-  justify-content: flex-start;
+  width: 95vw;
+  justify-content: space-between;
   padding: 1rem;
+}
+
+.links{
+  display: flex;
+}
+
+.theme{
+  background-color: black;
+    margin-top: 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 a{
   color: #000;
   text-decoration: none;
-  margin: 5px;
+  margin: 15px;
   cursor: pointer;
 }
 a:hover{
@@ -42,23 +65,45 @@ a:hover{
 
 footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
-  padding: 2rem;
+  padding: 0 2rem;
   position: relative;
   bottom: 0;
   width: 90%;
   height: 40px;
-  margin-top: 2rem;
 }
 
-footer > img{
-  width: 200px;
+footer img{
+  width: 40px;
   margin: 0;
+  color: black;
+  background-color: black ;
 }
+
+footer > img.logo{
+  width: 200px;
+  background-color: white;
+}
+
+footer > .iconos > img{
+  margin: 0 20px;
+}
+
+footer > .iconos{
+  background-color: black;
+}
+
 footer > p{
   margin: 0;
   padding-top: 0.7rem;
+}
+
+.powered{
+  text-align: center;
+  background-color: red;
+  padding: 10px;
+  margin-top: 2rem;
 }
 
 form{
@@ -68,6 +113,10 @@ form{
   width: 300px;
   height: 100px;
   margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
 }
 
 .card{
