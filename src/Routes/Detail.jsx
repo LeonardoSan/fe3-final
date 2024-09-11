@@ -34,7 +34,7 @@ const Detail = () => {
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
       <div>
       {loading ? (
-        "Hagamos de cuenta que soy un spinner..."
+        "Cargando información..."
       ) : (
         <>
           <table border="1">

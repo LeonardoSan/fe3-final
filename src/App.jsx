@@ -16,7 +16,7 @@ function App() {
           <Routes>
             <Route path={routes.home} element={<Home />} />
             <Route path={routes.contact} element={<Contact />} />
-            <Route path={routes.cart} element={<Fav />} />
+            <Route path={routes.favs} element={<Fav />} />
             <Route path="/detail/:id" element={<Detail />} />
             <Route
               path={routes.notFound}

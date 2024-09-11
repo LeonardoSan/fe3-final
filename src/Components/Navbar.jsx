@@ -20,7 +20,7 @@ const Navbar = () => {
         <Link to={routes.contact}>
           <h4>Contact</h4>
         </Link>
-        <Link to={routes.cart}>
+        <Link to={routes.favs}>
           <h4>Favs</h4>
         </Link>
         <div>
