@@ -26,16 +26,21 @@ const reducer = (state, action) => {
   }
 };
 
+
 const initialState = {
   recipes: [],
-  cart: [],
+  cart: []
 };
+
+const lsfavs = JSON.parse(localStorage.getItem("favs")) || [];
 
 export const Context = ({ children }) => {
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
 
   const [state, dispatch] = useReducer(reducer, initialState);
   console.log(state);
+
+  const [favs, setFavs] = useState(lsfavs);
 
   const url =
     "https://jsonplaceholder.typicode.com/users/";
@@ -48,11 +53,15 @@ export const Context = ({ children }) => {
     });
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("favs", JSON.stringify(favs));
+  }, [favs]);
+
   return (
     // <ContextGlobal.Provider value={{state, dispatch}}>
     //   {children}
     // </ContextGlobal.Provider>
-    <RecipeStates.Provider value={{ state, dispatch }}>
+    <RecipeStates.Provider value={{ state, dispatch, favs, setFavs }}>
       {children}
     </RecipeStates.Provider>
   );

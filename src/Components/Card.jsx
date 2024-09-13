@@ -26,11 +26,12 @@ import doctor from "../../public/images/doctor.jpg";
 const Card = ({ recipe }) => {
   const { id, name, username  } = recipe;
   // const urlImg = 'https://static.vecteezy.com/system/resources/previews/002/181/615/original/medical-doctor-general-practitioner-physician-profile-avatar-cartoon-vector.jpg';
-  const { dispatch } = useRecipeStates();
+  const { dispatch, setFavs } = useRecipeStates();
 
     const addFav = ()=>{
     // Aqui iria la logica para agregar la Card en el localStorage
-    dispatch({ type: "ADD_CART", payload: recipe });
+    //dispatch({ type: "ADD_CART", payload: recipe });
+    setFavs((favs) => [...favs, recipe]);
     alert('Se agrego a favoritos');
  }
   return (
