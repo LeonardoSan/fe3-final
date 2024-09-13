@@ -59,8 +59,6 @@ const Form = () => {
 
   return (
     <>
-      {/* {condicion ? resultado true : resultado false} */}
-
       <>
         <form onSubmit={handleSubmit}>
           <label>Nombre: </label>

@@ -9,18 +9,12 @@ import axios from "axios";
 
 //export const initialState = {theme: "", data: []}
 
-//export const ContextGlobal = createContext(undefined);
-
-const RecipeStates = createContext();
+const ContextGlobal = createContext();
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "GET_RECIPES":
-      return { ...state, recipes: action.payload };
-    case "ADD_CART":
-      return { ...state, cart: [...state.cart, action.payload] };
-    case "DELETE_CART": //Lo dejo de tarea utilizar un .filter()
-      return { ...state, cart: [] };
+    case "GET_DOCTORS":
+      return { ...state, doctors: action.payload };
     default:
       throw new Error();
   }
@@ -28,8 +22,7 @@ const reducer = (state, action) => {
 
 
 const initialState = {
-  recipes: [],
-  cart: []
+  doctors: []
 };
 
 const lsfavs = JSON.parse(localStorage.getItem("favs")) || [];
@@ -48,8 +41,7 @@ export const Context = ({ children }) => {
   useEffect(() => {
     axios(url).then((res) => {
       console.log(res.data);
-      // setRecipes(res.data.recipes);
-      dispatch({ type: "GET_RECIPES", payload: res.data });
+      dispatch({ type: "GET_DOCTORS", payload: res.data });
     });
   }, []);
 
@@ -58,15 +50,12 @@ export const Context = ({ children }) => {
   }, [favs]);
 
   return (
-    // <ContextGlobal.Provider value={{state, dispatch}}>
-    //   {children}
-    // </ContextGlobal.Provider>
-    <RecipeStates.Provider value={{ state, dispatch, favs, setFavs }}>
+    <ContextGlobal.Provider value={{ state, dispatch, favs, setFavs }}>
       {children}
-    </RecipeStates.Provider>
+    </ContextGlobal.Provider>
   );
 };
 
 export default Context;
 
-export const useRecipeStates = () => useContext(RecipeStates);
+export const useContextGlobal = () => useContext(ContextGlobal);

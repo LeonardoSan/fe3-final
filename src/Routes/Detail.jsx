@@ -9,7 +9,7 @@ const Detail = () => {
  
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
 
-  const [recipe, setRecipe] = useState({});
+  const [doctor, setDoctor] = useState({});
   const [loading, setLoading] = useState(true);
   const params = useParams();
   console.log(params);
@@ -19,7 +19,7 @@ const Detail = () => {
     axios(url)
       .then((res) => {
         console.log(res.data);
-        setRecipe(res.data);
+        setDoctor(res.data);
         setTimeout(() => {
           setLoading(false);
         }, 2000);
@@ -45,13 +45,12 @@ const Detail = () => {
                   <td>Website</td>
               </tr>
               <tr>
-                  <td>{recipe.name}</td>
-                  <td>{recipe.email}</td>
-                  <td>{recipe.phone}</td>
-                  <td>{recipe.website}</td>
+                  <td>{doctor.name}</td>
+                  <td>{doctor.email}</td>
+                  <td>{doctor.phone}</td>
+                  <td>{doctor.website}</td>
               </tr>
           </table>
-          {/* <div dangerouslySetInnerHTML={{ __html: recipe.instructions }} /> */}
         </>
       )}
     </div>

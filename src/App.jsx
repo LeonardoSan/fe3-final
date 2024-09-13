@@ -25,22 +25,6 @@ function App() {
           </Routes>
           <Footer/>
       </div>
-
-
-
-    //   <>
-    //   <Navbar />
-    //   <Routes>
-    //     <Route path={routes.home} element={<Home />} />
-    //     <Route path={routes.contact} element={<Contact />} />
-    //     <Route path={routes.cart} element={<Fav />} />
-    //     <Route path="/detail/:id" element={<Detail />} />
-    //     <Route
-    //       path={routes.notFound}
-    //       element={<h1>Error 404 - Page not Found</h1>}
-    //     />
-    //   </Routes>
-    // </>
   );
 }
 
