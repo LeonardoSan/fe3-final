@@ -7,11 +7,15 @@ import Contact from "./Routes/Contact";
 import Fav from "./Routes/Favs";
 import Detail from "./Routes/Detail";
 import { routes } from "./Components/utils/routes";
+import { useContextGlobal } from './Components/utils/global.context';
+
 
 
 function App() {
+  const { theme } = useContextGlobal();
+  console.log('tema:', theme);
   return (
-      <div className="App">
+      <div className={theme}>
           <Navbar/>
           <Routes>
             <Route path={routes.home} element={<Home />} />

@@ -6,19 +6,9 @@ import {
   useReducer
  } from "react";
 import axios from "axios";
-
-//export const initialState = {theme: "", data: []}
+import { reducer } from "../utils/reducers";
 
 const ContextGlobal = createContext();
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "GET_DOCTORS":
-      return { ...state, doctors: action.payload };
-    default:
-      throw new Error();
-  }
-};
 
 
 const initialState = {
@@ -34,6 +24,11 @@ export const Context = ({ children }) => {
   console.log(state);
 
   const [favs, setFavs] = useState(lsfavs);
+  const [theme, setTheme] = useState('light');
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+};
 
   const url =
     "https://jsonplaceholder.typicode.com/users/";
@@ -50,7 +45,7 @@ export const Context = ({ children }) => {
   }, [favs]);
 
   return (
-    <ContextGlobal.Provider value={{ state, dispatch, favs, setFavs }}>
+    <ContextGlobal.Provider value={{ state, dispatch, favs, setFavs,  theme, setTheme, toggleTheme  }}>
       {children}
     </ContextGlobal.Provider>
   );

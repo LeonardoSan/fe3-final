@@ -7,6 +7,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.li
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -162,10 +164,19 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
+.light{
+  background-color: rgb(228, 244, 239);
+  color: #000;
+}
+
 .dark{
-  background-color: #12121296;
+  background-color: rgba(0, 0, 0, 0.864);
   color: white;
 }
-.dark > a {
+.dark a {
+  color: white;
+}
+
+.dark .favButton{
   color: white;
 }

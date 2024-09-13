@@ -1,12 +1,20 @@
 import React from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import { routes } from "../Components/utils/routes";
+import { useContextGlobal } from '../Components/utils/global.context';
+
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Navbar = () => {
 
+  const { toggleTheme, theme } = useContextGlobal();
+
   const navigate = useNavigate();
+
+  const changeTheme = ()=>{
+    toggleTheme();
+ }
 
   return (
     <nav>
@@ -24,7 +32,7 @@ const Navbar = () => {
           <h4>Favs</h4>
         </Link>
         <div>
-          <button className='theme'>🌙</button>
+          <button onClick={changeTheme} className='theme'>{theme === "light" ? "🌙" : "🌞"}</button>
         </div>
         
       </div>
